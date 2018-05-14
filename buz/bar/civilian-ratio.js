@@ -1,6 +1,6 @@
 var id = 'civilian-ratio-bar';
 var data = {
-  title: '各时期列女庶人数量及占比柱状图1',
+  title: '各时期列女庶人数量及占比柱状图',
   aspects: ['庶人', '非庶人'],
   xData: ['后汉书', '晋书', '北史', '元史', '明史', '清史稿'],
   yDataSeries: [
