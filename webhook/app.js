@@ -12,12 +12,9 @@ function execFunc(content) {
     console.log('stderr:' + stderr)
   })
 }
-http.createServer(function (req, res) {
-  handler(req, res, function (err) {
-    res.statusCode = 404
-    res.end('no such location')
-  })
-}).listen(8090)
+
+console.log("starting server");
+
 handler.on('error', function (err) {
   console.error('Error:', err.message)
 })
@@ -27,5 +24,13 @@ handler.on('push', function (event) {
     event.payload.repository.name,
     event.payload.ref
   )
-  // execFunc('sh ./deploy.sh')
+  execFunc('sh ./deploy.sh')
 })
+
+http.createServer(function (req, res) {
+  handler(req, res, function (err) {
+    res.statusCode = 404
+    res.end('no such location')
+  })
+}).listen(8090)
+
